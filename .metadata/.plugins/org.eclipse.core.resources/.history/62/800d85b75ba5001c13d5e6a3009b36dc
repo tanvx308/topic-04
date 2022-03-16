@@ -1,0 +1,17 @@
+package fis.java.topic4.pool;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+import fis.java.topic4.util.JDBCUtil;
+
+public class HikariCPDataSource {
+	private static HikariConfig config = new HikariConfig();
+	
+	private static HikariDataSource ds;
+	
+	static {
+		config.setDriverClassName(JDBCUtil.DRIVER_NAME);
+		config.setJdbcUrl(null);
+	}
+}

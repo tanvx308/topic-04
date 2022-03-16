@@ -1,0 +1,17 @@
+package fis.java.topic4.view;
+
+import java.sql.Connection;
+
+import fis.java.topic4.util.JDBCUtil;
+
+public class MainApplication {
+	public static void main(String[] args) {
+		Connection conn = JDBCUtil.getConnection();
+		
+		if(conn == null) {
+			System.out.println("F");
+		}else {
+			System.out.println("T");
+		}
+	}
+}

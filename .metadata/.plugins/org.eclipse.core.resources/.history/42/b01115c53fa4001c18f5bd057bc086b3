@@ -1,0 +1,22 @@
+package fis.java.topic4.model;
+
+public class Account {
+	// thuộc tính
+	private Long id;
+	private String accountNumber;
+	private String accountName;
+	private Double balance;
+	private Integer status;
+
+	public Account() {
+	}
+
+	public Account(Long id, String accountNumber, String accountName, Double balance, Integer status) {
+		this.id = id;
+		this.accountNumber = accountNumber;
+		this.accountName = accountName;
+		this.balance = balance;
+		this.status = status;
+	}
+
+}

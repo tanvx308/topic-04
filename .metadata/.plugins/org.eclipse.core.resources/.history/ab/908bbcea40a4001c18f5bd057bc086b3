@@ -1,0 +1,34 @@
+package fis.java.topic4.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import fis.java.topic4.model.Account;
+import fis.java.topic4.util.JDBCUtil;
+
+public class AccountDao implements EntityDao<Account>{
+	@Override
+	public List<Account> findAll() {
+		List<Account> result = new ArrayList();
+		try(Statement st = JDBCUtil.getConnection().createStatement()) {
+			ResultSet rs = st.executeQuery("SELECT * FROM banking.account;");
+			while(rs.next()) {
+				Account account = new Account();
+				account.setId(rs.getLong("id"));
+				account.setAccountNumber(rs.getString("accountNumber"));
+				account.setAccountName(rs.getString("accountName"));
+				account.setBalance(rs.getDouble("balance"));
+				account.setStatus(rs.getInt("status"));
+				
+				result.add(account);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+}

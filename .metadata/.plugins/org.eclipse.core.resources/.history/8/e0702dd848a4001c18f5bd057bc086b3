@@ -1,0 +1,30 @@
+package fis.java.topic4.view;
+
+import java.util.List;
+
+import fis.java.topic4.dao.AccountDao;
+import fis.java.topic4.model.Account;;
+
+public class MainApplication {
+	public static void main(String[] args) {
+
+		Account account1 = AccountDao.findById(1);
+
+		System.out.println(account1.toString());
+
+		Account account2 = AccountDao.findById(2);
+
+		System.out.println(account2.toString());
+
+		try {
+			AccountDao.transfer(account1.getId(), account2.getId(), 12340);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		System.out.println("After transfer");
+		System.out.println(account1.toString());
+		System.out.println(account2.toString());
+	}
+}

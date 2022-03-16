@@ -1,0 +1,15 @@
+package fis.java.topic4.dao;
+
+import java.util.List;
+
+import fis.java.topic4.model.Account;
+
+public class AccountDao implements EntityDao<Account>{
+
+	@Override
+	public List<Account> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

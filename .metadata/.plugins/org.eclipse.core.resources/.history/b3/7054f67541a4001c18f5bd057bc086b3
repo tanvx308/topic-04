@@ -1,0 +1,33 @@
+package fis.java.topic4.dao;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import fis.java.topic4.model.Account;
+import fis.java.topic4.util.JDBCUtil;
+
+public class AccountDao{
+	
+	public static List<Account> findAll() {
+		List<Account> result = new ArrayList<Account>();
+		try(Statement st = JDBCUtil.getConnection().createStatement()) {
+			ResultSet rs = st.executeQuery("SELECT * FROM banking.account;");
+			while(rs.next()) {
+				Account account = new Account();
+				account.setId(rs.getLong("id"));
+				account.setAccountNumber(rs.getString("accountNumber"));
+				account.setAccountName(rs.getString("accountName"));
+				account.setBalance(rs.getDouble("balance"));
+				account.setStatus(rs.getInt("status"));
+				
+				result.add(account);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+}

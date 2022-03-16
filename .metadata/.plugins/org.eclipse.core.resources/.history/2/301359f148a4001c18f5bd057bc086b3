@@ -1,0 +1,17 @@
+package fis.java.topic4.view;
+
+import java.util.List;
+
+import fis.java.topic4.dao.AccountDao;
+import fis.java.topic4.model.Account;;
+
+public class MainApplication {
+	public static void main(String[] args) {
+
+		Account account = AccountDao.findById(1);
+
+		AccountDao.transferFrom(account.getId(), 5000);
+		
+		System.out.println(account.toString());
+	}
+}

@@ -1,0 +1,14 @@
+package fis.java.topic4.view;
+
+import java.util.List;
+
+import fis.java.topic4.dao.AccountDao;
+import fis.java.topic4.model.Account;;
+
+public class MainApplication {
+	public static void main(String[] args) {
+		List<Account> list = AccountDao.findAllByResultSet();
+		
+		list.forEach(item -> System.out.println(item.toString()));
+	}
+}

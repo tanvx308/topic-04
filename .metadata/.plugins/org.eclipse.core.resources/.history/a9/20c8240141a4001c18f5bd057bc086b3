@@ -1,0 +1,7 @@
+package fis.java.topic4.dao;
+
+import java.util.List;
+
+public interface EntityDao<E> {
+	List<E> findAll();
+}

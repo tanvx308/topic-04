@@ -1,0 +1,5 @@
+package fis.java.topic4.pool;
+
+public class DbConfiguration {
+
+}
